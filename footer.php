@@ -1,6 +1,12 @@
-       <?php wp_footer(); ?>
+       
     
       </div> <!--content-->
-    </div>  <!--#footer-->
-  </body>
+      <footer id="colophon" class="site-footer" role="contentinfo">
+         <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'mytheme') ); ?>">
+             <?php printf(esc_html__( 'Munna powered by %s', 'mytheme'), 'Wordpress'); ?>
+         </a>
+      </footer>
+    </div>  <!--#page-->
+    <?php wp_footer(); ?> 
+</body>
 </html>
