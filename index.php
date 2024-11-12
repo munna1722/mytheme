@@ -2,17 +2,40 @@
 
        <div id="primary" class="content-area">
           <main id="main" class="site-main" role="main">
+            
+          <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
              <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> > 
+
                  <header class="entry-header">
-                   <h1>My Theme</h1>
+
+                    <h1><?php the_title(); ?></h1>
+
                  </header> 
 
                  <div class="entry-content">
-                    <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</p>
+
+                    <p><?php the_content(); ?></p>
+                    
                  </div>
              </article>
+               
+          <?php endwhile; else : ?>
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> > 
+
+                  <header class="entry-header">
+                     <h1><?php esc_html_e('404', 'mytheme'); ?></h1>
+                  </header> 
+
+                  <div class="entry-content">
+                     <p><?php esc_html_e( 'Sorry! No Content Found', 'mytheme'); ?></p>
+                  </div>
+
+             </article>
+            <?php endif; ?>
+
           </main>
        </div> 
 
-       <?php get_sidebar( 'splash' ); ?> 
+       <?php get_sidebar( ); ?> 
   <?php get_footer(); ?>  

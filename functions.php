@@ -28,7 +28,19 @@ register_nav_menus( [
     'main-menu' => esc_html__('Main Menu', 'mytheme'),
 ] );
 
-
+// setup widget area
+ function mytheme_widgets_init() {
+  register_sidebar([
+    'name'          => esc_html__( 'Main Sideber', 'mytheme'),
+    'id'            => 'main-sidebar',
+    'description'   => esc_html__( 'add widgets for main sideber here', 'mytheme'),
+    'before_widget' => '<section class ="widget">',
+    'after_widget'  => '<section>',
+    'before_title'  => '<h2 class="widget-title">',
+    'after_title'   => '</h2>',
+  ]);
+ }
+ add_action( 'widgets_init', 'mytheme_widgets_init' );
 
 
 
